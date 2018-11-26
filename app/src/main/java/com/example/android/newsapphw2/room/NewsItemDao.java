@@ -20,5 +20,5 @@ public interface NewsItemDao {
     void insert(List<NewsItem> newsItems);
 
     @Query("DELETE FROM news_item")
-    void clearAll();
+    void deleteAll();
 }

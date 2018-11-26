@@ -11,35 +11,36 @@ import java.util.Scanner;
 
 public class NetworkUtils {
 
-    private final static String BASE_URL = "https://newsapi.org/v1/articles";
+    private static final String  NEWS_BASE_URL = "https://newsapi.org/v1/articles";
 
-    private final static String SOURCE_PARAM_NAME = "source";
+    private static  final String PARAM_SOURCE = "source";
 
-    private final static String SOURCE_PARAM_VALUE = "the-next-web";
+    private static  final String source = "the-next-web";
 
-    private final static String SORT_PARAM_NAME = "sortBy";
+    private static final String PARAM_SORT = "sortBy";
 
-    private final static String SORT_PARAM_VALUE = "latest";
+    private  static  final String sort = "latest";
 
-    private final static String API_KEY_PARAM_NAME = "apiKey";
+    private final static String PARAM_API_KEY = "apiKey";
 
-    private final static String API_KEY = "d0ec7c04b5e54bcd96337ba5a64d126d";
+
+    private final static String API_KEY = "43c822b373244bd2adfcd4c9a39ed02a";
 
     public static URL buildUrl() {
-        Uri uri = Uri.parse(BASE_URL).buildUpon()
-                .appendQueryParameter(SOURCE_PARAM_NAME, SOURCE_PARAM_VALUE)
-                .appendQueryParameter(SORT_PARAM_NAME, SORT_PARAM_VALUE)
-                .appendQueryParameter(API_KEY_PARAM_NAME, API_KEY)
+        Uri builtUri = Uri.parse(NEWS_BASE_URL).buildUpon()
+                .appendQueryParameter(PARAM_SOURCE,source)
+                .appendQueryParameter(PARAM_SORT,sort)
+                .appendQueryParameter(PARAM_API_KEY,API_KEY)
                 .build();
 
-        try {
-            return new URL(uri.toString());
-        }
-        catch (MalformedURLException e) {
+        URL url = null;
+        try{
+            url = new URL(builtUri.toString());
+        }catch (MalformedURLException e){
             e.printStackTrace();
         }
 
-        return null;
+        return url;
     }
 
     /**
