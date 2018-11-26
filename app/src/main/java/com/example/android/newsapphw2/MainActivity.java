@@ -1,6 +1,8 @@
 package com.example.android.newsapphw2;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -38,9 +40,16 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
-        mNewsItemViewModel.getAllNewsItems().observe(this, (List<NewsItem> items) -> {
-            mAdapter.updateNewsItems(items);
-            mAdapter.notifyDataSetChanged();
+//        mNewsItemViewModel.getAllNewsItems().observe(this, (List<NewsItem> items) -> {
+//            mAdapter.updateNewsItems(items);
+////            mAdapter.notifyDataSetChanged();
+//        });
+
+        mNewsItemViewModel.getAllNewsItems().observe(this, new Observer<List<NewsItem>>() {
+            @Override
+            public void onChanged(@Nullable List<NewsItem> newsItems) {
+                mAdapter.updateNewsItems(newsItems);
+            }
         });
     }
 
