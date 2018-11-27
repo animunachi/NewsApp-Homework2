@@ -41,14 +41,14 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
 //        mNewsItemViewModel.getAllNewsItems().observe(this, (List<NewsItem> items) -> {
-//            mAdapter.updateNewsItems(items);
+//            mAdapter.updateNewsItemRepo(items);
 ////            mAdapter.notifyDataSetChanged();
 //        });
 
         mNewsItemViewModel.getAllNewsItems().observe(this, new Observer<List<NewsItem>>() {
             @Override
             public void onChanged(@Nullable List<NewsItem> newsItems) {
-                mAdapter.updateNewsItems(newsItems);
+                mAdapter.updateNewsItemRepo(newsItems);
             }
         });
     }

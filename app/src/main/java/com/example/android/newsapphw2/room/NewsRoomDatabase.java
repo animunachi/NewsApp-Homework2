@@ -7,7 +7,7 @@ import android.content.Context;
 
 import com.example.android.newsapphw2.model.NewsItem;
 
-@Database(entities = {NewsItem.class}, version = 1)
+@Database(entities = {NewsItem.class}, version = 1,exportSchema = false)
 
 public abstract class NewsRoomDatabase extends RoomDatabase {
 

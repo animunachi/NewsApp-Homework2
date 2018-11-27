@@ -14,7 +14,7 @@ public class NewsItem {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    @JsonIgnore
+
     private int id;
 
     private String author;

@@ -17,6 +17,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerViewAdapter.NewsItemHolder> {
 
@@ -95,8 +96,8 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
         }
     }
 
-    public void updateNewsItems(Collection<NewsItem> newsItems) {
-        mNewsItems.clear();
+    public void updateNewsItemRepo(List<NewsItem> newsItems) {
+//        mNewsItems.clear();
         mNewsItems.addAll(newsItems);
         notifyDataSetChanged();
     }
