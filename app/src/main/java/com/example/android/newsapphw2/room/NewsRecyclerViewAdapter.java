@@ -97,7 +97,6 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
     }
 
     public void updateNewsItemRepo(List<NewsItem> newsItems) {
-//        mNewsItems.clear();
         mNewsItems.addAll(newsItems);
         notifyDataSetChanged();
     }

@@ -40,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
-//        mNewsItemViewModel.getAllNewsItems().observe(this, (List<NewsItem> items) -> {
-//            mAdapter.updateNewsItemRepo(items);
-////            mAdapter.notifyDataSetChanged();
-//        });
-
         mNewsItemViewModel.getAllNewsItems().observe(this, new Observer<List<NewsItem>>() {
             @Override
             public void onChanged(@Nullable List<NewsItem> newsItems) {
